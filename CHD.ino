@@ -11,9 +11,11 @@ const int medium = 750; //75
 const int large = 1000; //100
 
 //frequencies
-const int blue = 32;
-const int green = 262;
-const int red = 1000;
+const int blue = 500;
+const int cyan = 1750;
+const int green = 2500;
+const int yellow = 3250;
+const int red = 4000;
 
 // put your setup code here, to run once:
 void setup() {
@@ -36,11 +38,43 @@ void loop() {
   //takes in our microphones data
   int freq=(analogRead(mic)*10); //reads analog and converts to frequencies.We define this value as freq
   int sound=(analogRead(mic)); //reads analog and converts to decilbels. We define this value as sound //(20 * log10(analogRead(mic)))
-
-//  //if certain frequency turn on color
-//  if (freq>=red){
-   //if certain Decible set pattern
-   if (sound>=large){
+  
+  if (sound>=large){
+    if (freq>=red) {
+      digitalWrite(relay2, 255); //255
+      delay(250);
+      digitalWrite(relay2, LOW);
+      delay(250);    
+    }
+    else if (freq>=yellow){
+      digitalWrite(relay2, HIGH); //127
+      digitalWrite(relay3, HIGH);
+      delay(250);
+      digitalWrite(relay2, LOW);
+      digitalWrite(relay3, LOW);
+      delay(250);    
+    }
+    else if (freq>=green){
+      digitalWrite(relay3, 255); //255
+      delay(250);
+      digitalWrite(relay3, LOW);
+      delay(250);   
+    }
+    else if (freq>=cyan){
+      digitalWrite(relay3, HIGH); //127
+      digitalWrite(relay4, HIGH);
+      delay(250);
+      digitalWrite(relay3, LOW);
+      digitalWrite(relay4, LOW);
+      delay(250);    
+    }
+    else if (freq>=blue){
+      digitalWrite(relay4, 255); //255
+      delay(250);
+      digitalWrite(relay4, LOW);
+      delay(250);     
+    }
+    else {
       digitalWrite(relay2, HIGH); //255
       digitalWrite(relay3, HIGH);
       digitalWrite(relay4, HIGH);
@@ -50,7 +84,43 @@ void loop() {
       digitalWrite(relay4, LOW);
       delay(250);
     }
-    else if (sound>=medium){
+  }
+  else if (sound>=medium){
+     if (freq>=red){
+      digitalWrite(relay2, 255); //255
+      delay(1000);
+      digitalWrite(relay2, LOW);
+      delay(250);    
+    }
+    else if (freq>=yellow){
+      digitalWrite(relay2, HIGH); //127
+      digitalWrite(relay3, HIGH);
+      delay(1000);
+      digitalWrite(relay2, LOW);
+      digitalWrite(relay3, LOW);
+      delay(250);    
+    }
+    else if (freq>=green){
+      digitalWrite(relay3, 255); //255
+      delay(1000);
+      digitalWrite(relay3, LOW);
+      delay(250);   
+    }
+    else if (freq>=cyan){
+      digitalWrite(relay3, HIGH); //127
+      digitalWrite(relay4, HIGH);
+      delay(1000);
+      digitalWrite(relay3, LOW);
+      digitalWrite(relay4, LOW);
+      delay(250);    
+    }
+    else if (freq>=blue){
+      digitalWrite(relay4, 255); //255
+      delay(1000);
+      digitalWrite(relay4, LOW);
+      delay(250);     
+    }
+    else {
       digitalWrite(relay2, HIGH); //127
       digitalWrite(relay3, HIGH);
       digitalWrite(relay4, HIGH);
@@ -60,7 +130,43 @@ void loop() {
       digitalWrite(relay4, LOW);
       delay(250);
     }
-    else if (sound>=small){
+  }
+  else if (sound>=small){
+    if (freq>=red) {
+      digitalWrite(relay2, 255); //255
+      delay(3000);
+      digitalWrite(relay2, LOW);
+      delay(250);    
+    }
+    else if (freq>=yellow){
+      digitalWrite(relay2, HIGH); //127
+      digitalWrite(relay3, HIGH);
+      delay(1000);
+      digitalWrite(relay2, LOW);
+      digitalWrite(relay3, LOW);
+      delay(250);    
+    }
+    else if (freq>=green){
+      digitalWrite(relay3, 255); //255
+      delay(3000);
+      digitalWrite(relay3, LOW);
+      delay(250);   
+    }
+    else if (freq>=cyan){
+      digitalWrite(relay3, HIGH); //127
+      digitalWrite(relay4, HIGH);
+      delay(3000);
+      digitalWrite(relay3, LOW);
+      digitalWrite(relay4, LOW);
+      delay(250);    
+    }
+    else if (freq>=blue){
+      digitalWrite(relay4, 255); //255
+      delay(3000);
+      digitalWrite(relay4, LOW);
+      delay(250);     
+    }
+    else {
       digitalWrite(relay2, HIGH); //63.5
       digitalWrite(relay3, HIGH);
       digitalWrite(relay4, HIGH);
@@ -70,68 +176,10 @@ void loop() {
       digitalWrite(relay4, LOW);
       delay(250);
     }
-    else {
-      digitalWrite(relay2, LOW);
-      digitalWrite(relay3, LOW);
-      digitalWrite(relay4, LOW);
-    }
-//  }
-
-//  //if certain frequency turn on color
-//  else if (freq>=green){
-//   //if certain Decible set pattern
-//   if (sound>=large){
-//      digitalWrite(relay3, 255); //255
-//      delay(250);
-//      digitalWrite(relay3, LOW);
-//      delay(250);
-//    }
-//    else if (sound>=medium){
-//      digitalWrite(relay3, 127); //127
-//      delay(1000);
-//      digitalWrite(relay3, LOW);
-//      delay(1000);
-//    }
-//    else if (sound>=small){
-//      digitalWrite(relay3, 64); //63.5
-//      delay(3000);
-//      digitalWrite(relay3, LOW);
-//      delay(3000);
-//    }
-//    else {
-//      digitalWrite(relay2, LOW);
-//    }
-//  }
-//
-//  //if certain frequency turn on color
-//  else if (freq>=blue){
-//   //if certain Decible set pattern
-//   if (sound>=large){
-//      digitalWrite(relay4, 255); //255
-//      delay(250);
-//      digitalWrite(relay4, LOW);
-//      delay(250);
-//    }
-//    else if (sound>=medium){
-//      digitalWrite(relay4, 127); //127
-//      delay(1000);
-//      digitalWrite(relay4, LOW);
-//      delay(1000);
-//    }
-//    else if (sound>=small){
-//      digitalWrite(relay4, 64); //63.5
-//      delay(3000);
-//      digitalWrite(relay4, LOW);
-//      delay(3000);
-//    }
-//    else {
-//      digitalWrite(relay4, LOW);
-//    }
-//  }
-//
-//  else {
-//    digitalWrite(relay2, HIGH);
-//    digitalWrite(relay3, HIGH);
-//    digitalWrite(relay4, HIGH);
-//  }
+  }
+  else {
+    digitalWrite(relay2, LOW);
+    digitalWrite(relay3, LOW);
+    digitalWrite(relay4, LOW);
+  }
 }
