@@ -6,7 +6,6 @@ could about this project before buying the hardware. But After buying the hardwa
 In this project we hacked classic holiday lights to flash to music. This is the basic code for this and can be changed to
 display different patterns pretty easily.
 
-Check out https://medium.com/@sean.a.protho1/c-h-d-59be534c9209 If you would like to build something like this for yourself!
-And Have a great day!
+Check out https://medium.com/@sean.a.protho1/c-h-d-59be534c9209 If you would like to build something like this for yourself! or https://github.com/MakeMeSenpai/christmas_hack for the old repo where I was still planning how to build this entire thing. Have a great day!
 
 Kindly, ~Ant🐜
